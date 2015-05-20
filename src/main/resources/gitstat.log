@@ -1,0 +1,38 @@
+rabeckijps@gmail.com
+Wed May 20 21:45:14 2015 +0200
+fix classpath
+0	5	.classpath
+5	0	src/main/java/demo/dao/CommitViews.java
+
+pavel.rabetski@wirelesscar.com
+Wed May 20 15:56:53 2015 +0200
+fix json output
+1	1	src/main/java/demo/App.java
+29	3	src/main/java/demo/dao/Commit.java
+3	0	src/main/java/demo/dao/FileDiff.java
+15	2	src/main/java/demo/web/CommitsController.java
+0	10	src/main/resources/data.sql
+
+pavel.rabetski@wirelesscar.com
+Wed May 20 15:26:57 2015 +0200
+expose git commits via rest api
+36	0	.classpath
+3	0	.gitignore
+23	0	.project
+51	0	pom.xml
+70	0	src/main/java/demo/App.java
+28	0	src/main/java/demo/audit/AuditAdvices.java
+14	0	src/main/java/demo/audit/AuditExecTime.java
+28	0	src/main/java/demo/audit/MonitoringConfig.java
+68	0	src/main/java/demo/dao/Commit.java
+9	0	src/main/java/demo/dao/CommitRepository.java
+51	0	src/main/java/demo/dao/FileDiff.java
+6	0	src/main/java/demo/dao/FileDiffRepository.java
+22	0	src/main/java/demo/web/CommitsController.java
+10	0	src/main/resources/data.sql
+1	0	src/main/resources/gitstat.sh
+
+pavel-r@users.noreply.github.com
+Wed May 20 13:29:59 2015 +0200
+Initial commit
+1	0	README.md

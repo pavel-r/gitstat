@@ -11,6 +11,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.databind.annotation.JsonValueInstantiator;
 
 @Entity
 public class Commit implements Serializable {
@@ -20,18 +22,19 @@ public class Commit implements Serializable {
     @JsonIgnore
     private Long id;
 
+    @JsonView(CommitViews.List.class)
     private String author;
+    @JsonView(CommitViews.List.class)
     private String message;
+    @JsonView(CommitViews.List.class)
     private String date;
-
-    @Transient
+    @JsonView(CommitViews.List.class)
     private Long removed;
-    @Transient
+    @JsonView(CommitViews.List.class)
     private Long added;
 
     @OneToMany(orphanRemoval = true)
     @JoinColumn(name = "COMMIT_ID")
-    @JsonIgnore
     private Collection<FileDiff> fileDiffs;
 
     public Long getId() {
