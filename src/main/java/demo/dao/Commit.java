@@ -8,20 +8,30 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Commit implements Serializable{
+public class Commit implements Serializable {
 
     @Id
     @GeneratedValue
+    @JsonIgnore
     private Long id;
 
     private String author;
     private String message;
     private String date;
 
-    @OneToMany(orphanRemoval=true)
-    @JoinColumn(name="COMMIT_ID")
+    @Transient
+    private Long removed;
+    @Transient
+    private Long added;
+
+    @OneToMany(orphanRemoval = true)
+    @JoinColumn(name = "COMMIT_ID")
+    @JsonIgnore
     private Collection<FileDiff> fileDiffs;
 
     public Long getId() {
@@ -62,6 +72,22 @@ public class Commit implements Serializable{
 
     public void setFileDiffs(Collection<FileDiff> fileDiffs) {
         this.fileDiffs = fileDiffs;
+    }
+
+    public Long getRemoved() {
+        return removed;
+    }
+
+    public void setRemoved(Long removed) {
+        this.removed = removed;
+    }
+
+    public Long getAdded() {
+        return added;
+    }
+
+    public void setAdded(Long added) {
+        this.added = added;
     }
 
     public Commit() {}// jpa

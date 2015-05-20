@@ -38,7 +38,7 @@ class StartupRunner implements CommandLineRunner {
     public void run(String... arg0) throws Exception {
 
         Runtime rt = Runtime.getRuntime();
-        Process process = rt.exec(new String[]{"bash", "C:/projects/gitstat/gitstat3.sh"});
+        Process process = rt.exec(new String[]{"bash", "C:/projects/gitstat/src/main/resources/gitstat.sh"});
         List<Commit> commits = new ArrayList<>();
         try (Scanner scanner = new Scanner(process.getInputStream())) {
             while (scanner.hasNext()) {
