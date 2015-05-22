@@ -14,6 +14,7 @@ import demo.dao.CommitRepository;
 import demo.dao.CommitViews;
 
 @RestController
+@RequestMapping("/api")
 public class CommitsController {
 
     @Autowired
