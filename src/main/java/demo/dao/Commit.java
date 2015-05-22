@@ -2,17 +2,18 @@ package demo.dao;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.Transient;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonView;
-import com.fasterxml.jackson.databind.annotation.JsonValueInstantiator;
 
 @Entity
 public class Commit implements Serializable {
@@ -25,8 +26,11 @@ public class Commit implements Serializable {
     private String author;
     @JsonView(CommitViews.List.class)
     private String message;
+
     @JsonView(CommitViews.List.class)
-    private String date;
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd hh:mm")
+    @Temporal(TemporalType.DATE)
+    private Date date;
     @JsonView(CommitViews.List.class)
     private Long removed;
     @JsonView(CommitViews.List.class)
@@ -60,11 +64,11 @@ public class Commit implements Serializable {
         this.message = message;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.stereotype.Component;
 
 import demo.dao.Commit;
 import demo.dao.CommitRepository;
@@ -26,8 +25,7 @@ public class App {
 
 }
 
-@Component
-class StartupRunner implements CommandLineRunner {
+class OldStartupRunner implements CommandLineRunner {
 
     @Autowired
     CommitRepository commitRepo;
@@ -45,7 +43,7 @@ class StartupRunner implements CommandLineRunner {
             while (scanner.hasNext()) {
                 Commit commit = new Commit();
                 commit.setAuthor(scanner.nextLine());
-                commit.setDate(scanner.nextLine());
+                //commit.setDate(scanner.nextLine());
                 commit.setMessage(scanner.nextLine());
                 Collection<FileDiff> fileDiffs = new ArrayList<>();
                 while(scanner.hasNext()){
