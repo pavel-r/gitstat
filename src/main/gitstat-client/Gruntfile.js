@@ -143,22 +143,6 @@ module.exports = function (grunt) {
       }
     },
 
-    jsbeautifier: {
-      modify: {
-        src: ['Gruntfile.js', '<%= yeoman.client %>/{app,components}/**/*.{js,html}'],
-        options: {
-          config: '.jsbeautifyrc'
-        }
-      },
-      verify: {
-        src: ['Gruntfile.js', '<%= yeoman.client %>/{app,components}/**/*.{js,html}'],
-        options: {
-          mode: 'VERIFY_ONLY',
-          config: '.jsbeautifyrc'
-        }
-      }
-    },
-
     // Empties folders to start fresh
     clean: {
       dist: {
@@ -568,7 +552,6 @@ module.exports = function (grunt) {
       return grunt.task.run([
         'env:all',
         'env:test',
-        'jsbeautifier:verify',
         'mochaTest'
       ]);
     } else if (target === 'client') {
@@ -622,7 +605,4 @@ module.exports = function (grunt) {
     'build'
   ]);
 
-  grunt.registerTast('deploy', [
-
-  ]);
 };
