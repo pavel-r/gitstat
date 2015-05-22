@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -37,10 +38,10 @@ class StartupRunner implements CommandLineRunner {
     @Override
     public void run(String... arg0) throws Exception {
 
-//        Runtime rt = Runtime.getRuntime();
-//        Process process = rt.exec(new String[]{"bash", "C:/projects/gitstat/src/main/resources/gitstat.sh"});
+        Runtime rt = Runtime.getRuntime();
+        Process process = rt.exec(new String[]{"bash", "C:/projects/gitstat/src/main/resources/gitstat.sh"});
         List<Commit> commits = new ArrayList<>();
-        try (Scanner scanner = new Scanner(App.class.getResourceAsStream("/gitstat.log"))) {
+        try (Scanner scanner = new Scanner(/*App.class.getResourceAsStream("/gitstat.log")*/process.getInputStream())) {
             while (scanner.hasNext()) {
                 Commit commit = new Commit();
                 commit.setAuthor(scanner.nextLine());
@@ -59,6 +60,10 @@ class StartupRunner implements CommandLineRunner {
                         if(line.length() == 0) break;
                     }
                 }
+                Long added = fileDiffs.stream().collect(Collectors.summingLong(FileDiff::getAdded));
+                Long removed = fileDiffs.stream().collect(Collectors.summingLong(FileDiff::getRemoved));
+                commit.setAdded(added);
+                commit.setRemoved(removed);
                 fileDiffRepo.save(fileDiffs);
                 commit.setFileDiffs(fileDiffs);
                 commits.add(commit);

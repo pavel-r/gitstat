@@ -19,7 +19,6 @@ public class Commit implements Serializable {
 
     @Id
     @GeneratedValue
-    @JsonIgnore
     private Long id;
 
     @JsonView(CommitViews.List.class)
