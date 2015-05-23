@@ -1,0 +1,9 @@
+.added{
+	background-color: lightgreen;
+	color: black;
+}
+
+.removed{
+	background-color: pink;
+	color: black;
+}

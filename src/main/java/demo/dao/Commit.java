@@ -36,9 +36,9 @@ public class Commit implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date date;
     @JsonView(CommitViews.List.class)
-    private Long removed;
+    private Long removed = 0L;
     @JsonView(CommitViews.List.class)
-    private Long added;
+    private Long added = 0L;
 
     @OneToMany(orphanRemoval = true)
     @JoinColumn(name = "COMMIT_ID")

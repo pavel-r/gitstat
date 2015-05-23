@@ -2,7 +2,11 @@
   <div class="row">
       <h1 class="page-header">Commits:</h1>
       <ul class="nav nav-tabs nav-stacked col-md-12" ng-repeat="commit in commits">
-        <li><a ui-sref=".details({sha: '{{commit.sha}}'})" tooltip="{{commit.message}}">{{commit.sha}} {{commit.date}} {{commit.author}}({{commit.added}}:{{commit.removed}})</a></li>
+        <li>
+        	<a ui-sref=".details({sha: '{{commit.sha}}'})" tooltip="{{commit.message}}">
+        	<span>{{commit.date}} {{commit.author}} {{commit.message}}</span>
+        	<span class="added">{{commit.added}}</span> <span class="removed">{{commit.removed}}</span></a>
+        </li>
       </ul>
   </div>
 </div>

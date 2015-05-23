@@ -1,6 +1,8 @@
 <div class="row">
       <h1 class="page-header">Commit {{commit.sha}}</h1>
       <ul ng-repeat="diff in commit.fileDiffs">
-        <li>{{diff.name}}:+{{diff.added}}:-{{diff.removed}}</li>
+        <li>
+        	<span>{{diff.name}}</span> <span class="added">{{diff.added}}</span> <span class="removed">{{diff.removed}}</span>
+		</li>
       </ul>
  </div>

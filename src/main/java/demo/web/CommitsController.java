@@ -23,8 +23,8 @@ public class CommitsController {
     @RequestMapping("/commits")
     @JsonView(CommitViews.List.class)
     public Collection<Commit> getAllCommits() {
-        Collection<Commit> allCommits = commitRepo.findAll();
-        return allCommits;
+        Collection<Commit> commits = commitRepo.findAll();
+        return commits;
     }
 
     @RequestMapping("/commits/{sha}")
