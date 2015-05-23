@@ -54,6 +54,7 @@ public class StartupRunner implements CommandLineRunner {
             commit.setAuthor(revCommit.getAuthorIdent().getEmailAddress());
             commit.setDate(Date.from(Instant.ofEpochSecond(revCommit.getCommitTime())));
             commit.setMessage(revCommit.getFullMessage());
+            commit.setSha(revCommit.getName());
 
             // prepare the two iterators to compute the diff between
             if(revCommit.getParentCount() == 1){//no merge commits

@@ -7,4 +7,6 @@ var router = express.Router();
 
 router.get('/', controller.index);
 
+router.get('/:sha', controller.show);
+
 module.exports = router;

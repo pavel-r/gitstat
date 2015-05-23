@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class FileDiff implements Serializable{
     @Id
     @GeneratedValue
+    @JsonIgnore
     private Long id;
     private String name;
     private Long removed;

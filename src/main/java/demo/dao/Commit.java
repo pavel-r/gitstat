@@ -13,6 +13,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
@@ -20,8 +21,11 @@ public class Commit implements Serializable {
 
     @Id
     @GeneratedValue
+    @JsonIgnore
     private Long id;
 
+    @JsonView(CommitViews.List.class)
+    private String sha;
     @JsonView(CommitViews.List.class)
     private String author;
     @JsonView(CommitViews.List.class)
@@ -96,5 +100,13 @@ public class Commit implements Serializable {
         this.added = added;
     }
 
-    public Commit() {}// jpa
+    public String getSha() {
+		return sha;
+	}
+
+	public void setSha(String sha) {
+		this.sha = sha;
+	}
+
+	public Commit() {}// jpa
 }

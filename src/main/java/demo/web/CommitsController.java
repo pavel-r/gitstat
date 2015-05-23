@@ -27,9 +27,9 @@ public class CommitsController {
         return allCommits;
     }
 
-    @RequestMapping("/commits/{commitId}")
-    public Commit getCommitById(@PathVariable Long commitId) {
-        Commit commit = commitRepo.findOne(commitId);
+    @RequestMapping("/commits/{sha}")
+    public Commit getCommitById(@PathVariable String sha) {
+        Commit commit = commitRepo.findCommitBySha(sha);
         return commit;
     }
 }

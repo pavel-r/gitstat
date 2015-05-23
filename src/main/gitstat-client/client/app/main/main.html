@@ -8,15 +8,7 @@
   </div>
 </header>
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">Commits:</h1>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="commit in commits">
-        <li><a href="#" tooltip="{{commit.message}}">{{commit.date}} {{commit.author}}({{commit.added}}:{{commit.removed}})</a></li>
-      </ul>
-    </div>
-  </div>
+<div class="container" ui-view>
 </div>
 
 <footer class="footer">

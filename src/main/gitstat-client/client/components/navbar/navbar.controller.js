@@ -4,7 +4,10 @@ angular.module('gitstatClientApp')
   .controller('NavbarCtrl', function ($scope, $location) {
     $scope.menu = [{
       'title': 'Home',
-      'link': '/'
+      'link': 'main.home'
+    },{
+      'title': 'Commits',
+      'link': 'main.commits'
     }];
 
     $scope.isCollapsed = true;

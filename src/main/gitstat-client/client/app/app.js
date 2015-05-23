@@ -9,7 +9,7 @@ angular.module('gitstatClientApp', [
   ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider
-      .otherwise('/');
+      .otherwise('/main/home');
 
     $locationProvider.html5Mode(true);
   });
