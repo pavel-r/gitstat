@@ -8,6 +8,9 @@ angular.module('gitstatClientApp')
     },{
       'title': 'Commits',
       'link': 'main.commits'
+    },{
+      'title': 'Stats',
+      'link': 'main.stats'
     }];
 
     $scope.isCollapsed = true;

@@ -1,0 +1,4 @@
+-handle .js folders in Grunt
+-repo settings from .properties file
+-charts
+-detailed diff

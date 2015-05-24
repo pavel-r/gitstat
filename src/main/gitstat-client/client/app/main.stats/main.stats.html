@@ -1,3 +1,23 @@
-<div class="col-md-12">
-This is the main.stats view.
+<div class="col-md-8">
+  <div class="row">
+      <h1 class="page-header">Stats:</h1>
+      <table class="table">
+      		<thead>
+      			<tr>
+      	  			<th ng-repeat="field in fields">{{field}}</th>
+      	 		</tr>
+      		</thead>
+      		<tbody>
+      			<tr ng-repeat="stat in stats">
+			    	<td ng-repeat="field in fields">{{stat[field]}}</td>
+		  		</tr>
+      		</tbody>
+	</table>
+  </div>
+</div>
+<div class="col-md-4">
+	<div class="row">
+		<h1>Diagram:</h1>
+		<canvas id="pie" class="chart chart-pie" data="data" labels="labels" legend="true"></canvas>
+	</div>
 </div>
