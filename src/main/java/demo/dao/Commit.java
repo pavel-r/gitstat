@@ -33,7 +33,7 @@ public class Commit implements Serializable {
 
     @JsonView(CommitViews.List.class)
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd hh:mm")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date date;
     @JsonView(CommitViews.List.class)
     private Long removed = 0L;
